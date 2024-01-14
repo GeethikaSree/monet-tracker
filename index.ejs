@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Tracker</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Money Tracker</h1>
+        <form action="/addTransaction" method="post">
+            <label for="amount">Amount:</label>
+            <input type="number" name="amount" required>
+            <label for="description">Description:</label>
+            <input type="text" name="description" required>
+            <select name="type" required>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <button type="submit">Add Transaction</button>
+        </form>
+
+        <h2>Transactions</h2>
+        <ul>
+            <% transactions.forEach(transaction => { %>
+                <li><%= transaction.type %> - <%= transaction.description %> ($<%= transaction.amount %>)</li>
+            <% }); %>
+        </ul>
+    </div>
+</body>
+
+</html>
